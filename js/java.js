@@ -108,3 +108,4 @@ function IniciarJogo(){
 }
 
 let jogo = setInterval(IniciarJogo, 100);
+
