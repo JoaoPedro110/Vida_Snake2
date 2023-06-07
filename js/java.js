@@ -2,6 +2,7 @@
 let canvas = document.getElementById("gamesnake");
 let context = canvas.getContext("2d");
 let box = 32;
+let pontos = 0
 
 //Cobrinha
 let snake = [];
@@ -31,7 +32,7 @@ function criarBG() {
 //Função para criar a Cobra 
 function criarCobrinha (){
     for(i = 0; i < snake.length; i++){
-        context.fillStyle = "green";
+        context.fillStyle = "black";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 }
@@ -70,9 +71,11 @@ function IniciarJogo(){
     }
 
     for(i = 1; i < snake.length; i++){
+        document.getElementById("pnts").innerText = pontos + " pontos" 
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
             clearInterval(jogo);
-            alert('Game Over :(');
+            document.getElementById("pnts").innerText = "Após " + pontos + " pontos você perdeu" 
+            
         }
     }
 
@@ -93,6 +96,7 @@ function IniciarJogo(){
     } else {
         food.x = Math.floor(Math.random() * 15 + 1) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
+        pontos += 1
     }
 
     let newHead ={
