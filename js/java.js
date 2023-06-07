@@ -1,5 +1,5 @@
 //Criar elemento que ira rodar o jogo
-let canvas = document.getElementById("snake");
+let canvas = document.getElementById("gamesnake");
 let context = canvas.getContext("2d");
 let box = 32;
 
@@ -7,7 +7,7 @@ let box = 32;
 let snake = [];
 
 //Inicio da cobrinha 
-snake[0] ={
+snake[0] = {
     x: 8 * box,
     y: 8 * box
 }
@@ -28,12 +28,18 @@ function criarBG() {
     context.fillRect (0, 0, 16 * box , 16 * box);
 }
 
-//Criar Cobra 
+//Função para criar a Cobra d
 function criarCobrinha (){
     for(i = 0; i < snake.length; i++){
         context.fillStyle = "green";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
+}
+
+// Função para desenhar comida
+function drawFood (){
+    context.fillStyle = "red";
+    context.fillRect(food.x, food.y, box, box);
 }
 
 //Quando um evento acontece
